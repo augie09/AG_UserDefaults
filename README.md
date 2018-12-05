@@ -16,12 +16,15 @@ Figured it's at a good enough point to share.
 Basic
 ```
 //Define a Key and bind its value to a type
-//Note: Current short coming in this apporach is developers must make var name = string literal value
+//Note: Make static var name = string literal to maintain namespace for key
 extension UserDefaultKeys {
-     static var preferredName : UserDefaultString = "preferredName" 
+     static var preferredName : UserDefaultString = "preferredName"   // UserDefaultKeys.preferredName set and get will always be String
 }
 
+// Set a value
 UserDefaultKeys.preferredName.setValue("Bobbie Wasabi")  // only Strings will be allowed
+
+// Get a value
 let name = UserDefaultKeys.preferredName.getValue()  // type will be String
 ```
 
@@ -68,6 +71,7 @@ print(myTeam.name)
 ## How to add to a project
 Copy these 4 files to your project
 - UserDefaultKeyTypes.swift
+- UserDefaultKeys.swift
 - UserDefaults+.swift
 - Codable+.swift
 - Data+.swift
